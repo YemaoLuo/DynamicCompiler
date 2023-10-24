@@ -1,4 +1,4 @@
-package io.github.yemaoluo;
+package io.github.yemaoluo.rewrite;
 
 import javax.tools.SimpleJavaFileObject;
 import java.io.ByteArrayOutputStream;

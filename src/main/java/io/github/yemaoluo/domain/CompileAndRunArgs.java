@@ -1,4 +1,4 @@
-package io.github.yemaoluo;
+package io.github.yemaoluo.domain;
 
 import lombok.Data;
 
