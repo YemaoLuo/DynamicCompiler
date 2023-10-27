@@ -1,10 +1,12 @@
-package io.github.yemaoluo.domain;
+package io.github.yemaoluo.domain.java;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@Builder
 public class CompileAndRunArgs {
 
     private String code;

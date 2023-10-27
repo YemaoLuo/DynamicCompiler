@@ -1,21 +1,18 @@
 package io.github.yemaoluo;
 
-import io.github.yemaoluo.domain.CompileAndRunArgs;
-import io.github.yemaoluo.domain.CompileArgs;
+import io.github.yemaoluo.domain.java.CompileAndRunArgs;
+import io.github.yemaoluo.domain.java.CompileArgs;
 import io.github.yemaoluo.domain.Result;
-import io.github.yemaoluo.domain.RunArgs;
-import io.github.yemaoluo.factory.CompileAndRunArgsFactory;
-import io.github.yemaoluo.factory.CompileArgsFactory;
-import io.github.yemaoluo.factory.RunArgsFactory;
+import io.github.yemaoluo.domain.java.JavaRunArgs;
 import lombok.SneakyThrows;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-public class CompileTest {
+public class JavaCompileTest {
 
-    Logger log = Logger.getLogger(CompileTest.class.getName());
+    Logger log = Logger.getLogger(JavaCompileTest.class.getName());
 
     String code = """
             public class TestCode {
@@ -39,7 +36,7 @@ public class CompileTest {
     @Test
     @SneakyThrows
     public void test_compile_and_run() {
-        CompileAndRunArgs args = CompileAndRunArgsFactory.builder()
+        CompileAndRunArgs args = CompileAndRunArgs.builder()
                 .code(code)
                 .inputType(int.class)
                 .outputType(int.class)
@@ -56,7 +53,7 @@ public class CompileTest {
     @Test
     @SneakyThrows
     public void test_compile() {
-        CompileArgs args = CompileArgsFactory.builder()
+        CompileArgs args = CompileArgs.builder()
                 .code(code)
                 // this can be ignored as will auto-detect classname
                 .className("TestCode")
@@ -70,7 +67,7 @@ public class CompileTest {
     @Test
     @SneakyThrows
     public void test_run() {
-        CompileArgs args = CompileArgsFactory.builder()
+        CompileArgs args = CompileArgs.builder()
                 .code(code)
                 // this can be ignored as will auto-detect classname
                 .className("TestCode")
@@ -78,7 +75,7 @@ public class CompileTest {
         Result result = dc.compile(args);
         Object clazz = result.getResult();
 
-        RunArgs args2 = RunArgsFactory.builder()
+        JavaRunArgs args2 = JavaRunArgs.builder()
                 .clazz((Class) clazz)
                 .inputType(int.class)
                 .outputType(int.class)

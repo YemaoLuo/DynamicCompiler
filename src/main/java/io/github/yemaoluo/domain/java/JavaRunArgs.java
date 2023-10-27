@@ -1,11 +1,13 @@
-package io.github.yemaoluo.domain;
+package io.github.yemaoluo.domain.java;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class RunArgs {
+@Builder
+public class JavaRunArgs {
 
     private Class clazz;
     private String methodName;
