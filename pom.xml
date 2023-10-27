@@ -32,6 +32,16 @@
             <groupId>org.python</groupId>
             <artifactId>jython-slim</artifactId>
             <version>2.7.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-codec</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-common</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
